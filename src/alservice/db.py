@@ -597,9 +597,7 @@ class ALSQLiteDatabase(ALdatabase):
     ACCOUNT_TO_LINK_TABLE_NAME = "account_to_link_table"
 
     def __init__(self, database_path=None):
-        self.c_db = dataset.connect('sqlite:///:memory:')
-        if database_path:
-            self.c_db = dataset.connect('sqlite:///' + database_path)
+        self.c_db = dataset.connect('mysql://ALservice_user:Jfo3FDrIa5@localhost/ALservice')
         self.ticket_table = self.c_db.get_table(
             self.TICKET_TABLE_NAME,
             primary_id=ALDictDatabase.TICKET_TICKET_PRIMARY,
